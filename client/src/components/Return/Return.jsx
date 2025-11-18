@@ -1,4 +1,43 @@
+import { useState,useEffect } from "react";
+import axios from "axios";
+
+
 const Return=()=>{
+
+
+  const [data, setdata] = useState({
+  bookname: "",
+  customer: "",
+  email: "",
+  price: "",
+  category: "",
+  date: "",
+  quantity: "",
+  book_id:""
+});
+
+const handelChange=(e)=>{
+  
+  setdata({...data,[e.target.name]:e.target.value});
+  console.log(data);
+
+}
+
+
+const handelSubmit=async(e)=>{
+  e.preventDefault();
+
+  try {
+    const res=await axios.post("http://localhost:8000/books/returnbooks",data);
+    console.log(res.data);
+    alert("Book returned successfully");
+  } catch (error) {
+    console.log(error);
+    alert("Error in returning book");
+    console.log(error)
+  }
+
+}
 
     return(
 
@@ -15,25 +54,39 @@ const Return=()=>{
         </section>
 
         {/* Form */}
-        <form className="flex flex-col gap-3">
+        <form className="flex flex-col gap-3" onSubmit={handelSubmit}>
           
           {/* Book Name */}
           <div>
             <label className="font-semibold">Book Name</label>
             <input 
+              name="bookname" 
+              autoComplete="off" 
+              onChange={handelChange}
               className="border-2 border-gray-400 rounded-lg p-1 w-full" 
               type="text" 
-              name="bookName" 
-              autoComplete="off" 
+             
               required 
             />
           </div>
           <div>
             <label className="font-semibold">Customer Name</label>
             <input 
+            name="customer"
+              onChange={handelChange}
               className="border-2 border-gray-400 rounded-lg p-1 w-full" 
               type="text" 
-              name="Customer" 
+              autoComplete="off" 
+              required 
+            />
+          </div>
+          <div>
+            <label className="font-semibold">Book id</label>
+            <input 
+            name="book_id"
+              onChange={handelChange}
+              className="border-2 border-gray-400 rounded-lg p-1 w-full" 
+              type="text" 
               autoComplete="off" 
               required 
             />
@@ -41,9 +94,11 @@ const Return=()=>{
           <div>
             <label className="font-semibold">Customer email</label>
             <input 
+            
               className="border-2 border-gray-400 rounded-lg p-1 w-full" 
               type="text" 
               name="email" 
+              onChange={handelChange}
               autoComplete="off" 
               required 
             />
@@ -56,6 +111,7 @@ const Return=()=>{
               className="border-2 border-gray-400 rounded-lg p-1 w-full" 
               type="number"
               name="price" 
+              onChange={handelChange}
               autoComplete="off" 
               required 
             />
@@ -67,6 +123,8 @@ const Return=()=>{
             <select 
               className="border-2 border-gray-400 rounded-lg p-1 w-full"
               name="category"
+              onChange={handelChange}
+              autoComplete="off"
               required
             >
               <option value="">Select Category</option>
@@ -82,8 +140,9 @@ const Return=()=>{
             <input 
               className="border-2 border-gray-400 rounded-lg p-1 w-full" 
               type="date"
-              name="quantity" 
-              autoComplete="off" 
+              name="date" 
+              autoComplete="off"
+              onChange={handelChange} 
               required 
             />
           </div>
@@ -95,6 +154,7 @@ const Return=()=>{
               className="border-2 border-gray-400 rounded-lg p-1 w-full" 
               type="number"
               name="quantity" 
+              onChange={handelChange}
               autoComplete="off" 
               required 
             />
@@ -102,6 +162,7 @@ const Return=()=>{
 
           {/* Submit Button */}
           <button 
+          type="submit"
             className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition"
           >
             Add Book

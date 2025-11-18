@@ -6,13 +6,13 @@ const DeleteBook = ({ book, onView, onUpdate, onDelete }) => {
 
       {/* Book Image */}
       <img 
-        src={book.image || "https://dummyimage.com/200x250/ccc/000.png&text=No+Image"} 
-        alt={book.name} 
+        src={book.cover || "https://dummyimage.com/200x250/ccc/000.png&text=No+Image"} 
+        alt={book.title} 
         className="w-full h-[150px] object-cover rounded-lg"
       />
 
       {/* Book Info */}
-      <input type="text" className="text-lg font-semibold mt-2" value={book.name}/>
+      <h2 type="text" className="text-lg font-semibold mt-2" >{book.title}</h2>
       <p className="text-gray-600 text-sm">₹ {book.price}</p>
 
       {/* Buttons */}
@@ -20,7 +20,7 @@ const DeleteBook = ({ book, onView, onUpdate, onDelete }) => {
        
 
         <button 
-          onClick={() => onDelete(book._id)}
+          onClick={() => onDelete(book.id)}
           className="px-2 py-1 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600"
         >
           Delete

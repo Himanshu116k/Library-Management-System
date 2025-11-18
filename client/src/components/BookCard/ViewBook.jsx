@@ -6,19 +6,17 @@ const ViewBook = ({ book }) => {
 
       {/* Book Image */}
       <img 
-        src={book.image || "https://dummyimage.com/200x250/ccc/000.png&text=No+Image"} 
-        alt={book.name} 
+        src={book.cover || "https://dummyimage.com/200x250/ccc/000.png&text=No+Image"} 
+        alt={book.title} 
         className="w-full h-[150px] object-cover rounded-lg"
       />
+      <p>Author:-{book.author}</p>
+      <p>Quantity:-{book.quantity}</p>
 
       {/* Book Info */}
-      <input type="text" className="text-lg font-semibold mt-2" value={book.name}/>
       <p className="text-gray-600 text-sm">₹ {book.price}</p>
 
-      {/* Buttons */}
-      <div className="flex justify-between mt-3">
-      
-      </div>
+   
 
     </div>
   );

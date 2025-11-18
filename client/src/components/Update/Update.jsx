@@ -90,31 +90,36 @@ const dummyBooks = [
     _id: "1",
     name: "The Great Gatsby",
     price: 350,
-    image: "https://images.unsplash.com/photo-1544936207-40355fb32056?w=400"
+    image: "https://images.unsplash.com/photo-1544936207-40355fb32056?w=400",
+    quantity: 10
   },
   {
     _id: "2",
     name: "Atomic Habits",
     price: 499,
-    image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=400"
+    image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=400",
+    quantity: 5
   },
   {
     _id: "3",
     name: "Harry Potter",
     price: 799,
-    image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400"
+    image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400",
+    quantity: 8
   },
   {
     _id: "4",
     name: "Rich Dad Poor Dad",
     price: 299,
-    image: "https://images.unsplash.com/photo-1563201515-adbe35c669c5?w=400"
+    image: "https://images.unsplash.com/photo-1563201515-adbe35c669c5?w=400",
+    quantity: 12
   },
   {
     _id: "5",
     name: "Deep Work",
     price: 450,
-    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400"
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400",
+    quantity: 7
   }
 ];
 

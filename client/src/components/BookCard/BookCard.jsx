@@ -5,6 +5,7 @@ const BookCard = ({ book, onView, onUpdate, onDelete }) => {
   // Local editable fields
   const [editName, setEditName] = useState(book.name);
   const [editPrice, setEditPrice] = useState(book.price);
+  const [quantity, setquantity] = useState(book.quantity);
 
   return (
     <div className="w-[220px] bg-white shadow-md rounded-xl p-3 border border-gray-300">
@@ -30,6 +31,12 @@ const BookCard = ({ book, onView, onUpdate, onDelete }) => {
         className="text-gray-600 text-sm border px-1 rounded mt-1"
         value={editPrice}
         onChange={(e) => setEditPrice(e.target.value)}
+      />
+      <input 
+        type="number"
+        className="text-gray-600 text-sm border px-1 rounded mt-1"
+        value={quantity}
+        onChange={(e) => setquantity(e.target.value)}
       />
 
       {/* Buttons */}

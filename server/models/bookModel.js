@@ -3,9 +3,9 @@ import db from "../db/db.js";
 const BookModel = {
     addBook: async (data) => {
         const [result] = await db.query(
-            "INSERT INTO books (title, author, quantity, price,cover) VALUES (?, ?, ?, ?,?)",
-            [data.title, data.author, data.quantity, data.price,data.cover]
-        );
+  "INSERT INTO books (title, author, quantity, price, category, cover) VALUES (?, ?, ?, ?, ?, ?)",
+  [data.title, data.author, data.quantity, data.price, data.category, data.cover]
+);
         return result;
     },
 
@@ -14,7 +14,7 @@ const BookModel = {
         try {
             const [result] = await db.query(
             "UPDATE books SET price = ?, quantity = ? WHERE id = ?",
-            [ price, quantity,id]
+            [ id,price, quantity]
             );
             return result;  
         } catch (error) {
