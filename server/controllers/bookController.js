@@ -28,22 +28,20 @@ const result = await BookService.addBook({
     },
 
     updateQuantity: async (req, res) => {
-        try {
-            
-            const { id,price,quantity } = req.body;
-            console.log("Updating Book ID:", id, "with Price:", price, "and Quantity:", quantity);  
+  try {
+    const { price, quantity, title } = req.body;
+    const id = req.params.id;
 
-            await BookService.updateQuantity(id, price, quantity);
+    const result = await BookService.updateQuantity(id, price, quantity, title);
 
+    res.json({ success: true, message: "Book updated", result });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Server error" });
+  }
+},
 
-            res.json({ success: true, message: "Quantity updated" });
-        } catch (err) {
-            res.status(500).json({ error: "Server error" });
-            console.log(err);
-        }
-    },
-
-    deleteBook: async (req, res) => {
+deleteBook: async (req, res) => {
         try {
             const { id } = req.params;
 

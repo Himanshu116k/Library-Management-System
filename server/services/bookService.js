@@ -5,9 +5,10 @@ const BookService = {
         return await BookModel.addBook(data);
     },
 
-    updateQuantity: async (id, price, quantity) => {
-    return await BookModel.updateQuantity(id, price, quantity);
+    updateQuantity: async (id, price, quantity, title) => {
+  return await BookModel.updateQuantity(price, quantity, title, id);
 },
+
 
     deleteBook: async (id) => {
         return await BookModel.deleteBook(id);

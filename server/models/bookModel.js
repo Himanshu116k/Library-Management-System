@@ -9,18 +9,19 @@ const BookModel = {
         return result;
     },
 
-    updateQuantity: async (price,quantity,id) => {
-        console.log("Updating Book ID in database:", id, "with Price:", price, "and Quantity:", quantity);
-        try {
-            const [result] = await db.query(
-            "UPDATE books SET price = ?, quantity = ? WHERE id = ?",
-            [ id,price, quantity]
-            );
-            return result;  
-        } catch (error) {
-            return error;
-        }
-    },
+    updateQuantity: async (price, quantity, title, id) => {
+  console.log(`UPDATE books SET price = ${price}, quantity = ${quantity}, title = ${title} WHERE id = ${id}`);
+
+  try {
+    const [result] = await db.query(
+      "UPDATE books SET price = ?, quantity = ?, title = ? WHERE id = ?",
+      [price, quantity, title, id]
+    );
+    return result;
+  } catch (error) {
+    return error;
+  }
+},
 
     deleteBook: async (id) => {
         const [result] = await db.query("DELETE FROM books WHERE id = ?", [id]);

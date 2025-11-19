@@ -10,6 +10,7 @@ const ViewBook = ({ book }) => {
         alt={book.title} 
         className="w-full h-[150px] object-cover rounded-lg"
       />
+      <p>Name:-{book.title}</p>
       <p>Author:-{book.author}</p>
       <p>Quantity:-{book.quantity}</p>
 

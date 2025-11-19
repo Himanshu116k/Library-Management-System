@@ -22,7 +22,7 @@ const Update = () => {
   };
 
   const handleUpdate = (book) => {
-    alert("Update feature coming! Book ID: " + book._id);
+    alert("Update feature coming! Book ID: " + book.id);
   };
 
   const handleDelete = async (id) => {

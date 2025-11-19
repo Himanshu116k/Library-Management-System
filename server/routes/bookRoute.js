@@ -7,7 +7,7 @@ router.post(
   "/add",
   upload.fields([{ name: "BookCoverImage", maxCount: 1 }]),
   BookController.addBook
-);router.post("/update", BookController.updateQuantity);
+);router.put("/update/:id", BookController.updateQuantity);
 router.delete("/delete/:id", BookController.deleteBook);
 router.get("/all", BookController.getBooks);
 router.post("/buy", BookController.buyBook);
