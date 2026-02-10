@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 
 const Buybook = () => {
-
   const [data, setData] = useState({
     bookname: "",
     customer: "",
@@ -17,7 +16,6 @@ const Buybook = () => {
 
   const handelChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
-    console.log({ ...data, [e.target.name]: e.target.value });
   };
 
   const handelSubmit = async (e) => {
@@ -36,7 +34,7 @@ const Buybook = () => {
   return (
     <div className="p-5 flex justify-center w-full">
       <div className="w-[350px] bg-white shadow-lg p-5 rounded-xl border border-gray-300">
-        
+
         <section className="text-center mb-4">
           <p className="flex items-center justify-center gap-2 text-gray-700 font-medium">
             All fields are mandatory
@@ -49,84 +47,79 @@ const Buybook = () => {
           {/* Book Name */}
           <div>
             <label className="font-semibold">Book Name</label>
-            <input 
+            <input
               className="border-2 border-gray-400 rounded-lg p-1 w-full"
               type="text"
               name="bookname"
               onChange={handelChange}
-              autoComplete="off"
-              required 
+              required
             />
           </div>
 
           {/* Book ID */}
           <div>
             <label className="font-semibold">Book ID</label>
-            <input 
+            <input
               className="border-2 border-gray-400 rounded-lg p-1 w-full"
               type="text"
               name="book_id"
               onChange={handelChange}
-              autoComplete="off"
-              required 
+              required
             />
           </div>
 
           {/* Customer Name */}
           <div>
             <label className="font-semibold">Customer Name</label>
-            <input 
+            <input
               className="border-2 border-gray-400 rounded-lg p-1 w-full"
               type="text"
               name="customer"
               onChange={handelChange}
-              autoComplete="off"
-              required 
+              required
             />
           </div>
 
           {/* Email */}
           <div>
             <label className="font-semibold">Customer Email</label>
-            <input 
+            <input
               className="border-2 border-gray-400 rounded-lg p-1 w-full"
               type="email"
               name="email"
               onChange={handelChange}
-              autoComplete="off"
-              required 
+              required
             />
           </div>
 
-          {/* Date */}
+          {/* Purchase Date */}
           <div>
             <label className="font-semibold">Purchase Date</label>
-            <input 
+            <input
               className="border-2 border-gray-400 rounded-lg p-1 w-full"
               type="date"
               name="date"
               onChange={handelChange}
-              required 
+              required
             />
           </div>
 
           {/* Price */}
           <div>
             <label className="font-semibold">Book Price (₹)</label>
-            <input 
+            <input
               className="border-2 border-gray-400 rounded-lg p-1 w-full"
               type="number"
               name="price"
               onChange={handelChange}
-              autoComplete="off"
-              required 
+              required
             />
           </div>
 
           {/* Category */}
           <div>
             <label className="font-semibold">Category</label>
-            <select 
+            <select
               className="border-2 border-gray-400 rounded-lg p-1 w-full"
               name="category"
               onChange={handelChange}
@@ -141,10 +134,10 @@ const Buybook = () => {
             </select>
           </div>
 
-          {/* Payment */}
+          {/* Payment Mode */}
           <div>
             <label className="font-semibold">Payment Mode</label>
-            <select 
+            <select
               className="border-2 border-gray-400 rounded-lg p-1 w-full"
               name="payment"
               onChange={handelChange}
@@ -156,21 +149,37 @@ const Buybook = () => {
             </select>
           </div>
 
+          {/* UPI Scanner */}
+          {data.payment === "upi" && (
+            <div className="border-2 border-dashed border-green-500 p-3 rounded-lg text-center">
+              <p className="font-semibold text-green-600 mb-2">
+                Scan & Pay using UPI
+              </p>
+              <img
+                src="/upi-qr.png"
+                alt="UPI QR Code"
+                className="w-40 h-40 mx-auto"
+              />
+              <p className="text-sm text-gray-600 mt-2">
+                Complete payment before clicking Buy Book
+              </p>
+            </div>
+          )}
+
           {/* Quantity */}
           <div>
             <label className="font-semibold">Quantity</label>
-            <input 
+            <input
               className="border-2 border-gray-400 rounded-lg p-1 w-full"
               type="number"
               name="quantity"
               onChange={handelChange}
-              autoComplete="off"
-              required 
+              required
             />
           </div>
 
           {/* Submit Button */}
-          <button 
+          <button
             className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition"
             type="submit"
           >
@@ -178,7 +187,6 @@ const Buybook = () => {
           </button>
 
         </form>
-
       </div>
     </div>
   );

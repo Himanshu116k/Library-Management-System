@@ -1,6 +1,7 @@
 import React from "react";
 
 const ViewBook = ({ book }) => {
+  console.log(book);
   return (
     <div className="w-[220px] bg-white shadow-md rounded-xl p-3 border border-gray-300">
 
@@ -12,6 +13,7 @@ const ViewBook = ({ book }) => {
       />
       <p>Name:-{book.title}</p>
       <p>Author:-{book.author}</p>
+      <p><strong>ID:-{book.id}</strong></p>
       <p>Quantity:-{book.quantity}</p>
 
       {/* Book Info */}
